@@ -28,8 +28,8 @@ function ArtPlayer({
     ) {
         if (Hls.isSupported()) {
             if (art.hls) art.hls.destroy();
-            const hls = new Hls();
-            hls.loadSource(url);
+            const hls = new Hls();            hls.loadSource(`https://gogoanime-and-hianime-proxy-ten.vercel.app/m3u8-proxy?url=${encodeURIComponent(url)}`);
+
             hls.attachMedia(video);
             art.hls = hls;
             art.on("destroy", () => hls.destroy());
